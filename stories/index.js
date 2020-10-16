@@ -89,6 +89,7 @@ const sample = {
   vote_count: 9692
 };
 
+
 storiesOf("Home Page/MovieCard", module)
   .add("default", () => <MovieCard movie={sample} />)
   .add("exception", () => {

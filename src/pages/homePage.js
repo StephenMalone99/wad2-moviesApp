@@ -4,10 +4,12 @@ import MovieList from "../components/movieList";
 import FilterControls from "../components/filterControls";
 
 const MovieListPage = () => {
+  const [titleFilter, setTitleFilter] = useState("");      
+  const [genreFilter, setGenreFilter] = useState("0");      
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     fetch(
-      'https://api.themoviedb.org/3/discover/movie?api_key=d8722c355bec01520ff099a3e01c203e'
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
     )
       .then(res => res.json())
       .then(json => {

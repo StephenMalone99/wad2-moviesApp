@@ -6,7 +6,8 @@ const FilterControls = props => {
 
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=d8722c355bec01520ff099a3e01c203e"
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
+        process.env.REACT_APP_TMDB_KEY
     )
       .then(res => res.json())
       .then(json => json.genres)

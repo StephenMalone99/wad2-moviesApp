@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 import Header from "../components/headerMovieList";
 import MovieList from "../components/movieList";
 import FilterControls from "../components/filterControls";
+import StubAPI from "../api/stubAPI";
 
 const MovieListPage = () => {
   const [titleFilter, setTitleFilter] = useState("");      
@@ -22,6 +23,16 @@ const MovieListPage = () => {
       });
   }, []);
 
+  const addToFavorites = movieId => {
+   
+    const index = movies.map(m => m.id).indexOf(movieId)
+
+    StubAPI.add(movies[index])
+    const updatedList = [...movies]  
+    updatedList.splice(index, 1)     
+    setMovies(updatedList)
+  }
+
   const genre = Number(genreFilter)
   let displayedMovies = movies
     .filter(m => {
@@ -31,18 +42,23 @@ const MovieListPage = () => {
       return genre > 0 ? m.genre_ids.includes(Number(genreFilter)) : true;
     });
 
-  const handleFilterChange = (type, value) => {
-    if (type === "name") setTitleFilter(value);
-    else setGenreFilter(value);
-  };
+ 
+    const handleFilterChange = (type, value) => {
+      if (type === "name") setTitleFilter(value);
+      else setGenreFilter(value);
+    };
+  
 
   return (
     <>
-      <Header numMovies={displayedMovies.length} />         
-      <FilterControls onUserInput={handleFilterChange} />    
-      <MovieList movies={displayedMovies} />                  
-    </>
-  );
+    <Header numMovies={displayedMovies.length} />
+    <FilterControls onUserInput={handleFilterChange} />
+    <MovieList
+      movies={displayedMovies}
+      buttonHandler={addToFavorites}
+    /> 
+  </>
+);
 };
 
 export default MovieListPage;

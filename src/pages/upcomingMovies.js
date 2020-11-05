@@ -1,4 +1,4 @@
-import React, {memo, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import StubAPI from "../api/stubAPI";
 import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
@@ -24,11 +24,11 @@ const UpcomingMovieListPage = () => {
 
   return (
       <PageTemplate
-        title='Upcoming Movies'
+        title={'Upcoming Movies'}
         movies={movies}
         buttonHandler={addToFavorites}
       />
   );
 };
 
-export default memo(UpcomingMovieListPage);
+export default UpcomingMovieListPage;

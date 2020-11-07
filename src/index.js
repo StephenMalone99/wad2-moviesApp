@@ -2,12 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import MoviesContextProvider from "./contexts/moviesContext";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage';
 import FavoriteMoviesPage from './pages/FavoritesMoviesPage';
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import UpcomingMovies from './pages/upcomingMovies';
+import GenresContextProvider from "./contexts/genresContext";
+
 
 const App = () => {
   return (
@@ -15,6 +18,8 @@ const App = () => {
     <div className="jumbotron">
           <SiteHeader /> 
           <div className="container-fluid">
+          <MoviesContextProvider>
+          <GenresContextProvider>
         <Switch>
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
@@ -23,6 +28,8 @@ const App = () => {
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
         </Switch>
+        </GenresContextProvider>  
+        </MoviesContextProvider>
       </div>
     </div>
   </BrowserRouter>

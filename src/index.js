@@ -19,21 +19,19 @@ const App = () => {
     <div className="jumbotron">
           <SiteHeader /> 
           <div className="container-fluid">
-          <MoviesContextProvider>
-          <UpcomingMoviesContextProvider>
-          <GenresContextProvider>
-        <Switch>
-          <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-          <Route path="/reviews/:id" component={MovieReviewPage} />
+          <MoviesContextProvider> 
+        <GenresContextProvider>  
+            <Switch>
+            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route exact path="/movies/upcoming" component={UpcomingMovies} />
+          <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
-        </Switch>
-        </GenresContextProvider>  
-        </UpcomingMoviesContextProvider>
-        </MoviesContextProvider>
+          </Switch>
+          </GenresContextProvider>    
+          </MoviesContextProvider>  
       </div>
     </div>
   </BrowserRouter>

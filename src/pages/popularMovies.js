@@ -4,7 +4,7 @@ import {MoviesContext} from '../contexts/moviesContext'
 import AddToFavorites from '../components/buttons/addToFavorites'
 import WatchLaterButton from '../components/buttons/watchLater'
 
-const UpcomingMovies = () => {
+const PopularMovies = () => {
   const context = useContext(MoviesContext);
   const movies = context.upcoming.filter((m) => {  // New
     return !("favorite" in m);
@@ -21,4 +21,4 @@ const UpcomingMovies = () => {
   );
 };
 
-export default UpcomingMovies;
+export default PopularMovies;

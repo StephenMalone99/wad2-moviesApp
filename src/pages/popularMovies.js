@@ -6,14 +6,14 @@ import WatchLaterButton from '../components/buttons/watchLater'
 
 const PopularMovies = () => {
   const context = useContext(MoviesContext);
-  const movies = context.upcoming.filter((m) => {  // New
+  const popular = context.popular.filter((m) => {  // New
     return !("favorite" in m);
   });
 
   return (
     <PageTemplate
       title="New Movies!"
-      movies={movies}  /* Changed */
+      movies={popular}  /* Changed */
       action={(movie) => {
         return <WatchLaterButton movie={movie} />;
       }}

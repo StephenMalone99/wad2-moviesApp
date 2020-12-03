@@ -4,16 +4,16 @@ import {MoviesContext} from '../contexts/moviesContext'
 import AddToFavorites from '../components/buttons/addToFavorites'
 import WatchLaterButton from '../components/buttons/watchLater'
 
-const PopularMovies = () => {
+const TopRatedMovies = () => {
   const context = useContext(MoviesContext);
-  const popular = context.popular.filter((m) => {  // New
+  const toprated = context.toprated.filter((m) => {  // New
     return !("favorite" in m);
   });
 
   return (
     <PageTemplate
       title="New Movies!"
-      movies={popular}  /* Changed */
+      movies={toprated}  /* Changed */
       action={(movie) => {
         return <WatchLaterButton movie={movie} />;
       }}
@@ -21,4 +21,4 @@ const PopularMovies = () => {
   );
 };
 
-export default PopularMovies;
+export default TopRatedMovies;

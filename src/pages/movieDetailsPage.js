@@ -3,6 +3,7 @@ import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
+import Cast from "../components/cast"
 import useMovie from "../hooks/useMovie";
 
 const MoviePage = props => {
@@ -16,6 +17,7 @@ return (
       <PageTemplate movie={movie}>
         <MovieDetails movie={movie} />
       </PageTemplate>
+      <Cast movie={movie} />
       <div className="row">
         <div className="col-12 ">
           {!props.history.location.pathname.endsWith("/reviews") ? (

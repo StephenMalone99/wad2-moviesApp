@@ -15,7 +15,7 @@ const UpcomingMovies = () => {
       title="New Movies!"
       movies={movies}  /* Changed */
       action={(movie) => {
-        return <WatchLaterButton movie={movie} />;
+        return <AddToFavorites movie={movie} />;
       }}
     />
   );

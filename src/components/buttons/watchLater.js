@@ -5,7 +5,7 @@ const WatchLaterButton= ({ movie }) => {
   const context = useContext(MoviesContext);
   const handleAddToWatchLater = e => {
     e.preventDefault();
-    context.watchLater(movie.id) 
+    context.addToWatchLater(movie.id) 
    };
 
   return (

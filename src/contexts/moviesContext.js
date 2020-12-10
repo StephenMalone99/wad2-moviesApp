@@ -17,7 +17,7 @@ const reducer = (state, action) => {
 
       case "add-watchlater":
       return {
-        upcoming: state.movies.map((m) =>
+        upcoming: state.upcoming.map((m) =>
           m.id === action.payload.movie.id ? { ...m, watchlater: true } : m
         ),
         movies: [...state.movies],
@@ -59,7 +59,7 @@ const MoviesContextProvider = (props) => {
   };
 
   const addToWatchLater = (movieId) => {
-    const index = state.movies.map((m) => m.id).indexOf(movieId);
+    const index = state.upcoming.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-watchlater", payload: { movie: state.upcoming[index] } });
   };
 

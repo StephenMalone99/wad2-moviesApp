@@ -3,13 +3,16 @@ import {MoviesContext} from "../../contexts/moviesContext";
 
 const WatchLaterButton= ({ movie }) => {
   const context = useContext(MoviesContext);
-
-// Put code here to handle adding movies to a watch later page
+  const handleAddToWatchLater = e => {
+    e.preventDefault();
+    context.watchLater(movie.id) 
+   };
 
   return (
     <button
       type="button"
       className="btn w-100 btn-primary"
+      onClick = {handleAddToWatchLater}
     >
       Watch Later
     </button>

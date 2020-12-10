@@ -22,7 +22,7 @@ export default ({ movie }) => {
   return(
 
     <div className="col-sm-3">
-      <div className="card  bg-white">
+      <div className="card bg-white">
         <img
           className="card-img-tag center "
           src={
@@ -43,7 +43,7 @@ export default ({ movie }) => {
           </p>
           <p>
             <FontAwesomeIcon icon={["fas", "star"]} /> 
-            <span> {member.id}</span>
+            <span> {member.name}</span>
           </p>
         </div>
       </div>

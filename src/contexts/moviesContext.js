@@ -14,6 +14,17 @@ const reducer = (state, action) => {
         toprated: [...state.toprated],
         nowplaying : [...state.nowplaying]
       };
+
+      case "add-watchlater":
+      return {
+        upcoming: state.movies.map((m) =>
+          m.id === action.payload.movie.id ? { ...m, watchlater: true } : m
+        ),
+        movies: [...state.movies],
+        toprated: [...state.toprated],
+        nowplaying : [...state.nowplaying]
+      };
+
     case "load":
       return { movies: action.payload.movies, upcoming: [...state.upcoming], toprated : [...state.toprated], nowplaying : [...state.nowplaying] };
     case "load-upcoming":
@@ -45,6 +56,11 @@ const MoviesContextProvider = (props) => {
   const addToFavorites = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-favorite", payload: { movie: state.movies[index] } });
+  };
+
+  const addToWatchLater = (movieId) => {
+    const index = state.movies.map((m) => m.id).indexOf(movieId);
+    dispatch({ type: "add-watchlater", payload: { movie: state.upcoming[index] } });
   };
 
   const addReview = (movie, review) => {
@@ -88,6 +104,7 @@ const MoviesContextProvider = (props) => {
         toprated : state.toprated,
         nowplaying : state.nowplaying,
         addToFavorites: addToFavorites,
+        addToWatchLater : addToWatchLater,
         addReview: addReview,
       }}
     >

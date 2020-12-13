@@ -12,7 +12,7 @@ const MoviesNowPlaying = () => {
 
   return (
     <PageTemplate
-      title="New Movies!"
+      title="Now Playing!"
       movies={nowplaying}  /* Changed */
       action={(movie) => {
         return <WatchLaterButton movie={movie} />;

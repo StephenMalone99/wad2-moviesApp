@@ -39,7 +39,7 @@ export default ({ movie }) => {
 
           <p>
             <FontAwesomeIcon icon={["fas", "star"]} /> 
-            <span> {member.season_number}</span>
+            <span> {member.popularity}</span>
           </p>
           <p>
             <FontAwesomeIcon icon={["fas", "star"]} /> 

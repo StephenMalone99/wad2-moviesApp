@@ -12,7 +12,7 @@ const TopRatedMovies = () => {
 
   return (
     <PageTemplate
-      title="New Movies!"
+      title="Top Rated Movies!"
       movies={toprated}  /* Changed */
       action={(movie) => {
         return <WatchLaterButton movie={movie} />;

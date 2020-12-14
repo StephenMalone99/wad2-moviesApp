@@ -44,7 +44,7 @@ Investigation and use of the TMDB API Documentation for project.
 
 ---------------------------------
 
-[toprated]: ./public/toprated.png
-[nowplaying]: ./public/nowplaying.png
-[castncrew]: ./public/castncrew.png
-[watchlist]: ./public/watchlist.png
+[toprated]: ./public/toprated.PNG
+[nowplaying]: ./public/nowplaying.PNG
+[castncrew]: ./public/castncrew.PNG
+[watchlist]: ./public/watchlist.PNG
